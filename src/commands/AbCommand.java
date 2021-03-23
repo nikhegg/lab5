@@ -20,7 +20,7 @@ public class AbCommand implements Command {
         return this.description;
     }
 
-    public void execute() throws NotOverridenException {
+    public void execute(String[] args) throws NotOverridenException {
         throw new NotOverridenException("Execute method of \"" + this.name + "\" command is not overriden");
     }
 

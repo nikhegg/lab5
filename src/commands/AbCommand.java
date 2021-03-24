@@ -23,8 +23,4 @@ public class AbCommand implements Command {
     public void execute(String[] args) throws NotOverridenException {
         throw new NotOverridenException("Execute method of \"" + this.name + "\" command is not overriden");
     }
-
-    public void undo() throws NotOverridenException {
-        throw new NotOverridenException("Undo method of \"" + this.name + "\" command is not overriden");
-    }
 }

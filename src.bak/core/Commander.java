@@ -1,5 +1,4 @@
 package core;
-import structure.Invoker;
 
 public class Commander {
     private final Invoker invoker;

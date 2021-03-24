@@ -1,5 +1,4 @@
 package core;
-import structure.Invoker;
 import java.util.Scanner;
 
 public class Consoler {

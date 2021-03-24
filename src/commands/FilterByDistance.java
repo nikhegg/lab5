@@ -10,7 +10,7 @@ public class FilterByDistance extends AbCommand {
     }
 
     @Override
-    public void execute() {
+    public void execute(String[] args) {
 
     }
 }

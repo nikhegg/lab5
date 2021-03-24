@@ -9,12 +9,8 @@ public class Exit extends AbCommand {
         this.consoler = consoler;
     }
 
-    public void execute() {
+    public void execute(String[] args) {
         System.out.println("Shutting down the program...");
         this.consoler.stop();
-    }
-
-    public void undo() {
-        this.consoler.start();
     }
 }

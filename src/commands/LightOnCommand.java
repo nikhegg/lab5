@@ -11,7 +11,7 @@ public class LightOnCommand extends AbCommand {
     }
 
     @Override
-    public void execute() {
+    public void execute(String[] args) {
         if(this.light.getStatus()) this.light.off();
         else this.light.on();
     }

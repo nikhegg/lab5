@@ -10,7 +10,7 @@ public class MinByDistance extends AbCommand {
     }
 
     @Override
-    public void execute() {
+    public void execute(String[] args) {
 
     }
 }

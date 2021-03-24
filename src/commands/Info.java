@@ -16,7 +16,7 @@ public class Info extends AbCommand {
         this.vector = vector;
     }
 
-    public void execute() {
+    public void execute(String[] args) {
         /*TODO  The process of getting VectorCore data
             VIA: vector.getCreationDate(), vector.getSize(), ...
          */

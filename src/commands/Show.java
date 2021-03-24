@@ -9,7 +9,7 @@ public class Show extends AbCommand {
         this.vector = vector;
     }
 
-    public void execute() {
+    public void execute(String[] args) {
         if(!vector.getCollection().equals("")) System.out.println(vector.getCollection());
         else System.out.println("The collection has no content inside");
     }

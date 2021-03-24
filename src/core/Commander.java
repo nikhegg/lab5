@@ -20,14 +20,14 @@ public class Commander {
     public void sendCmd(String command, Consoler consoler) {
         //TODO Getting args
         String[] args = Arrays.copyOfRange(command.split(" "), 1, command.split(" ").length);
-
-        switch(command) {
+        String cmd = command.split(" ")[0];
+        switch(cmd) {
             case "help" -> {
                 
             }
             default -> {
                 try {
-                    cmds.get(command).execute(args);
+                    cmds.get(cmd).execute(args);
                 } catch(Exception e) {
                     System.out.println("Unknown command. Type \"help\" to get the list of commands  ");
                 }

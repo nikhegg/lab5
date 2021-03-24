@@ -9,7 +9,7 @@ public class Clear extends AbCommand{
         this.vector = vector;
     }
 
-    public void execute() {
+    public void execute(String[] args) {
         /* TODO Check if this method doesn't crash the program (vector.clear() as a method n VectorCore class
                 && vector.clear() as a method in default Vector class
         */

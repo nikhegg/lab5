@@ -10,7 +10,7 @@ public class AddElement extends AbCommand {
     }
 
     @Override
-    public void execute(String[] elements) {
-        this.vector.addElement(elements[0]);
+    public void execute(String[] args) {
+        this.vector.addElement(args[0]);
     }
 }

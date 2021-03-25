@@ -1,7 +1,5 @@
 package commands;
 
-import structure.Light;
-
 public class LightOnCommand extends AbCommand {
     private Light light;
 

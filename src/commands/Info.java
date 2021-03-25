@@ -1,12 +1,7 @@
 package commands;
-
-import core.VectorCore;
-
+import misc.VectorCore;
 import java.text.DateFormat;
-import java.text.FieldPosition;
-import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class Info extends AbCommand {
     private final VectorCore vector;
@@ -17,11 +12,10 @@ public class Info extends AbCommand {
     }
 
     public void execute(String[] args) {
-        /*TODO  The process of getting VectorCore data
-            VIA: vector.getCreationDate(), vector.getSize(), ...
+        /*TODO Check if all info is given
          */
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        System.out.println("-----Collection info-----\nData Type: " + this.vector.getClass().getName() + "\nInitialisation Date: " + df.format(this.vector.getCreationDate()) +
-                "\nCollection Size: " + this.vector.getSize() + "\n-------------------------\n");
+        System.out.println("-----Collection info-----\nData Type: " + this.vector.getClass().getName() + "\nHash Code: " + this.vector.hashCode() + "\nInitialisation Date: " + df.format(this.vector.getCreationDate()) +
+                "\nCollection Size: " + this.vector.getSize() + "\n-------------------------");
     }
 }

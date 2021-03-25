@@ -1,5 +1,5 @@
 package commands;
-import core.VectorCore;
+import misc.VectorCore;
 
 public class MinByDistance extends AbCommand {
     private final VectorCore vector;

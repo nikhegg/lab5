@@ -1,5 +1,5 @@
 package commands;
-import core.VectorCore;
+import misc.VectorCore;
 
 public class FilterByDistance extends AbCommand {
     public final VectorCore vector;

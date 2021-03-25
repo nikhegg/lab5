@@ -1,11 +1,10 @@
 package core;
 import commands.AbCommand;
-
 import java.util.Arrays;
 import java.util.HashMap;
 
 public class Commander {
-    private HashMap<String, AbCommand> cmds = new HashMap<String, AbCommand>();
+    private HashMap<String, AbCommand> cmds = new HashMap<>();
 
     public Commander(AbCommand... commands) {
         for(AbCommand cmd: commands) {
@@ -18,7 +17,6 @@ public class Commander {
     }
 
     public void sendCmd(String command, Consoler consoler) {
-        //TODO Getting args
         String[] args = Arrays.copyOfRange(command.split(" "), 1, command.split(" ").length);
         String cmd = command.split(" ")[0];
         switch(cmd) {
@@ -29,7 +27,7 @@ public class Commander {
                 try {
                     cmds.get(cmd).execute(args);
                 } catch(Exception e) {
-                    System.out.println("Unknown command. Type \"help\" to get the list of commands  ");
+                    System.out.println("Unknown command. Type \"help\" to get the list of commands");
                 }
             }
         }

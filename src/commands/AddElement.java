@@ -1,5 +1,8 @@
 package commands;
-import core.VectorCore;
+import exceptions.NullException;
+import misc.RouteMaker;
+import misc.VectorCore;
+import misc.Route;
 
 public class AddElement extends AbCommand {
     private final VectorCore vector;
@@ -11,6 +14,18 @@ public class AddElement extends AbCommand {
 
     @Override
     public void execute(String[] args) {
-        this.vector.addElement(args[0]);
+
+        //TODO Route Maker
+        RouteMaker rm = new RouteMaker();
+        Route route = null;
+        try {
+            route = rm.makeNewRoute();
+        } catch(NullException e) {
+            System.out.println(e.getMessage());
+        }
+        if(route != null) {
+            this.vector.addElement(route);
+        }
+
     }
 }

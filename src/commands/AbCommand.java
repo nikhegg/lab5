@@ -1,7 +1,5 @@
 package commands;
-
-import structure.Command;
-import core.NotOverridenException;
+import exceptions.NotOverridenException;
 
 public class AbCommand implements Command {
     private final String name;

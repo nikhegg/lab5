@@ -1,6 +1,6 @@
-package structure;
+package commands;
 
-import core.NotOverridenException;
+import exceptions.NotOverridenException;
 
 public interface Command {
     void execute(String[] args) throws NotOverridenException;

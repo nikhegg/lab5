@@ -17,9 +17,11 @@ public class Consoler {
         Scanner scanner = new Scanner(System.in);
         String cmd = scanner.nextLine();
         this.commander.sendCmd(cmd, this);
+        System.out.println();
         while(this.active) {
             cmd = scanner.nextLine();
             this.commander.sendCmd(cmd, this);
+            System.out.println();
         }
     }
 

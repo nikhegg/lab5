@@ -1,5 +1,5 @@
 package commands;
-import core.VectorCore;
+import misc.VectorCore;
 
 public class Clear extends AbCommand{
     private final VectorCore vector;
@@ -11,7 +11,7 @@ public class Clear extends AbCommand{
 
     public void execute(String[] args) {
         /* TODO Check if this method doesn't crash the program (vector.clear() as a method n VectorCore class
-                && vector.clear() as a method in default Vector class
+                && vector.clear() as a method in default Vector class)
         */
         this.vector.clear();
     }

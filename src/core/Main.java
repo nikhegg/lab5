@@ -1,14 +1,10 @@
-package structure;
+package core;
 import commands.*;
-import core.*;
-
-import java.util.HashMap;
+import misc.VectorCore;
 
 public class Main {
     public static void main(String[] args) {
-        VectorCore collection = new VectorCore(); // Collection
-        Info cmd = new Info(collection);
-        //Invoker invoker = new Invoker(cmd); // Invoker
+        VectorCore collection = new VectorCore();
         Commander commander = new Commander(
                 new AddElement(collection),
                 new AddIfMin(collection),
@@ -25,7 +21,7 @@ public class Main {
                 new Show(collection),
                 new Sort(collection),
                 new UpdateID(collection));
-        Consoler consoler = new Consoler(commander); // Console core
+        Consoler consoler = new Consoler(commander);
         consoler.start();
     }
 }

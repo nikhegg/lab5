@@ -1,11 +1,11 @@
 package commands;
-import core.VectorCore;
+import misc.VectorCore;
 
 public class Save extends AbCommand {
     private final VectorCore vector;
 
     public Save(VectorCore vector) {
-        super("save", "Saves the collection to a file (collection.csv)");
+        super("save", "Saves the collection to a file");
         this.vector = vector;
     }
 

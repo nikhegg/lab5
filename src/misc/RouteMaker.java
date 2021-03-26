@@ -21,52 +21,56 @@ public class RouteMaker {
         Coordinates cords = new Coordinates(cordX, cordY);
         // TODO DAFUQ?
         // java.time.ZonedDateTime date = scanner.next java.time.ZonedDateTime();
-        System.out.print("\nIs there a start location of the route? \nType Y for \"yes\" or N for \"no\"");
+        System.out.print("\nIs there a start location of the route? \nType Y for \"yes\" or N for \"no\": ");
+        String lname;
         char locationExistence = scanner.next().charAt(0);
         Location locationOne = null;
         switch(locationExistence) {
             case 'Y' -> {
-                System.out.print("\nEnter the name of the start location");
-                String lname = scanner.nextLine();
+                System.out.print("\nEnter the name of the start location: ");
+                lname = scanner.nextLine(); // TODO КОСТЫЛЬ ЙОМАЙО
+                lname = scanner.nextLine();
                 if(lname == null) throw new NullException("The name of the start location can't be a null");
-                System.out.print("\nEnter coordinate X of the start location");
+                System.out.print("\nEnter coordinate X of the start location: ");
                 Double lx = scanner.nextDouble();
                 if(lx == null) throw new NullException("The coordinate X of the start location can't be a null");
-                System.out.print("\nEnter coordinate Y of the start location");
+                System.out.print("\nEnter coordinate Y of the start location: ");
                 int ly = scanner.nextInt();
-                System.out.print("\nEnter coordinate Z of the start location");
+                System.out.print("\nEnter coordinate Z of the start location: ");
                 Integer lz = scanner.nextInt();
                 if(lz == null) throw new NullException("The coordinate Z of the start location can't be a null");
                 locationOne = new Location(lname, lx, ly, lz);
             }
             case 'N' -> {
-                System.out.print("\nThe route " + name + " doesn't have a start location");
+                System.out.print("\nThe route " + name + " doesn't have a start location\n");
                 locationOne = null;
             }
             default -> {
                 throwError();
             }
         }
-        System.out.print("\nIs there an end location of the route? \nType Y for \"yes\" or N for \"no\"");
+        System.out.print("\nIs there an end location of the route? \nType Y for \"yes\" or N for \"no\": ");
         locationExistence = scanner.next().charAt(0);
         Location locationTwo = null;
         switch(locationExistence) {
             case 'Y' -> {
-                System.out.print("\nEnter the name of the end location");
-                String lname = scanner.nextLine();
+                System.out.print("\nEnter the name of the end location: ");
+                lname = scanner.nextLine();
+                lname = scanner.nextLine();
                 if(lname == null) throw new NullException("The name of the end location can't be a null");
-                System.out.print("\nEnter coordinate X of the end location");
+                System.out.print(lname);
+                System.out.print("\nEnter coordinate X of the end location: ");
                 Double lx = scanner.nextDouble();
                 if(lx == null) throw new NullException("The coordinate X of the end location can't be a null");
-                System.out.print("\nEnter coordinate Y of the end location");
+                System.out.print("\nEnter coordinate Y of the end location: ");
                 int ly = scanner.nextInt();
-                System.out.print("\nEnter coordinate Z of the end location");
+                System.out.print("\nEnter coordinate Z of the end location: ");
                 Integer lz = scanner.nextInt();
                 if(lz == null) throw new NullException("The coordinate Z of the end location can't be a null");
                 locationTwo = new Location(lname, lx, ly, lz);
             }
             case 'N' -> {
-                System.out.print("\nThe route " + name + " doesn't have an end location");
+                System.out.print("\nThe route " + name + " doesn't have an end location\n");
                 locationTwo = null;
             }
             default -> {

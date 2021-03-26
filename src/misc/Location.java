@@ -12,4 +12,20 @@ public class Location {
         this.y = y;
         this.z = z;
     }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public Double getX() {
+        return this.x;
+    }
+
+    public int getY() {
+        return this.y;
+    }
+
+    public Integer getZ() {
+        return this.z;
+    }
 }

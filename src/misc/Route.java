@@ -23,4 +23,32 @@ public class Route {
     public void setID(long id) {
         this.id = id;
     }
+
+    public long getID() {
+        return this.id;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public Coordinates getCoordinates() {
+        return this.coordinates;
+    }
+
+    public java.time.ZonedDateTime getCreationDate() {
+        return this.creationDate;
+    }
+
+    public Location getStartLocation() {
+        return this.from;
+    }
+
+    public Location getEndLocation() {
+        return this.to;
+    }
+
+    public Double getDistance() {
+        return this.distance;
+    }
 }

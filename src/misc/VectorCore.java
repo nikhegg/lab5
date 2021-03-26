@@ -20,16 +20,6 @@ public class VectorCore {
         return this.creationDate;
     }
 
-    public String getCollection() {
-        String collectionLines = "ID | Content\n";
-        for(int i = 0; i<this.vector.size(); i++) {
-            //TODO Will it be okay for Route class? (Spoiler: NO)
-            collectionLines += i + "  | " + vector.get(i) + "\n";
-        }
-        if(collectionLines.equals("ID | Content\n")) collectionLines = "";
-        return collectionLines;
-    }
-
     public void addElement(Route route) {
         this.vector.add(route);
         System.out.println("Added new route to the collection with ID " + (this.vector.size()-1));

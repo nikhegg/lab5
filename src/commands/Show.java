@@ -25,6 +25,6 @@ public class Show extends AbCommand {
                     "\n\tDistance: " + route.getDistance() + "\n";
         }
         if(message.equals("ID | Content\n")) System.out.println("The collection has 0 elements inside");
-        else System.out.println(message);
+        else System.out.println("The collection has " + this.vector.getSize() + " elements inside\n" + message);
     }
 }

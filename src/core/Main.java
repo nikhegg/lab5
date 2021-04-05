@@ -10,7 +10,6 @@ public class Main {
                 new AddIfMin(collection),
                 new Clear(collection),
                 new CountLessThanDistance(collection),
-                new ExecuteScript(),
                 new FilterByDistance(collection),
                 new Help(),
                 new Info(collection),
@@ -21,6 +20,7 @@ public class Main {
                 new Show(collection),
                 new Sort(collection),
                 new UpdateID(collection));
+        //FileOperator fileOperator = new FileOperator(Globals.envPath);
         Consoler consoler = new Consoler(commander);
         consoler.start();
     }

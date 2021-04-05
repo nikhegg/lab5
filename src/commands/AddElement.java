@@ -1,5 +1,6 @@
 package commands;
 import core.Globals;
+import exceptions.IncorrectArgumentException;
 import exceptions.NullException;
 import misc.VectorCore;
 import misc.Route;
@@ -18,7 +19,7 @@ public class AddElement extends AbCommand {
         Route route = null;
         try {
             route = Globals.makeNewRoute();
-        } catch(NullException e) {
+        } catch(NullException | IncorrectArgumentException e) {
             System.out.println(e.getMessage());
         }
 

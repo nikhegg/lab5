@@ -1,4 +1,5 @@
 package core;
+import commands.ExecuteScript;
 import commands.Exit;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
@@ -18,6 +19,7 @@ public class Consoler {
                     "| Version: 1.8\n");
             this.active = true;
             this.commander.addCmd(new Exit(this));
+            this.commander.addCmd(new ExecuteScript(this.commander, this));
             Scanner scanner = new Scanner(System.in);
             System.out.print("> ");
             String cmd = scanner.nextLine();

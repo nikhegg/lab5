@@ -1,8 +1,7 @@
 package commands;
 import misc.VectorCore;
-
 import java.util.Scanner;
-
+// DONE
 public class Clear extends AbCommand{
     private final VectorCore vector;
 

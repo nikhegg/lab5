@@ -2,7 +2,7 @@ package commands;
 import misc.VectorCore;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-
+// DONE
 public class Info extends AbCommand {
     private final VectorCore vector;
 

@@ -1,6 +1,6 @@
 package commands;
 import core.Consoler;
-
+// DONE
 public class Exit extends AbCommand {
     private final Consoler consoler;
 

@@ -20,9 +20,7 @@ public class Commander {
         String[] args = Arrays.copyOfRange(command.split(" "), 1, command.split(" ").length);
         String cmd = command.split(" ")[0];
         switch(cmd) {
-            case "help" -> {
-                cmds.get(cmd).execute(this.cmds);
-            }
+            case "help" -> cmds.get(cmd).execute(this.cmds, args);
             default -> {
                 try {
                     cmds.get(cmd).execute(args);

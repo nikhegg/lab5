@@ -8,7 +8,7 @@ public class UpdateID extends AbCommand {
     private final VectorCore vector;
 
     public UpdateID(VectorCore vector) {
-        super("update", "Updates an elements of collection with a specified ID", false);
+        super("update", "Updates an elements of collection with a specified ID", "show <id>",false);
         this.vector = vector;
     }
 

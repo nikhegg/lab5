@@ -9,7 +9,7 @@ public class AddElement extends AbCommand {
     private final VectorCore vector;
 
     public AddElement(VectorCore vector) {
-        super("add", "Adds a new element to the collection", false);
+        super("add", "Adds a new element to the collection", "add",false);
         this.vector = vector;
     }
 

@@ -10,7 +10,7 @@ public class ExecuteScript extends AbCommand {
     private Consoler consoler;
 
     public ExecuteScript(Commander commander, Consoler consoler) {
-        super("execute_script", "Executes the script from a specified file", false);
+        super("execute_script", "Executes the script from a specified file", "execute_script <path>",false);
         this.commander = commander;
         this.consoler = consoler;
     }

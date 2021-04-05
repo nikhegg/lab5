@@ -6,7 +6,7 @@ public class Clear extends AbCommand{
     private final VectorCore vector;
 
     public Clear(VectorCore vector) {
-        super("clear", "Clears the collection", false);
+        super("clear", "Clears the collection", "clear", false);
         this.vector = vector;
     }
 

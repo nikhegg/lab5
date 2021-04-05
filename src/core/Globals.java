@@ -9,8 +9,10 @@ import java.util.Scanner;
 
 public class Globals {
     public static String envPath = System.getenv("VECTOR_COLLECTION_V");
+    public static int routesCreated = 0;
+    public static double version = 1.9;
 
-    public static Route makeNewRoute() throws NullException, IncorrectArgumentException { // TODO Check Route Maker
+    public static Route makeNewRoute() throws NullException, IncorrectArgumentException {
         Scanner scanner = new Scanner(System.in);
         System.out.print("\nEnter the name of the new route: ");
         String name = scanner.nextLine();
@@ -67,7 +69,8 @@ public class Globals {
             case 'N', 'n' -> System.out.print("\nThe route " + name + " doesn't have an end location\n");
             default -> throw new IncorrectArgumentException("got");
         }
-        return new Route(name, cords, locationOne, locationTwo, 1.0);// TODO Not all parameters are given to Route. What is DISTANCE?
+        routesCreated++;
+        return new Route(name, cords, locationOne, locationTwo, 1.0);
     }
 
     public static boolean isInt(String word) {

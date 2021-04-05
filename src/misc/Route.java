@@ -1,5 +1,5 @@
 package misc;
-import java.time.ZonedDateTime;
+import core.Globals;
 
 public class Route {
     private long id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
@@ -11,7 +11,7 @@ public class Route {
     private Double distance; //Поле может быть null, Значение поля должно быть больше 1
 
     public Route(String name, Coordinates coordinates, Location from, Location to, Double distance) {
-        this.id = -1; // TODO ID System
+        this.id = Globals.routesCreated;
         this.name = name;
         this.coordinates = coordinates;
         this.creationDate = java.time.ZonedDateTime.now();

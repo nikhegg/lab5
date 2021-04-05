@@ -5,7 +5,7 @@ public class RemoveLast extends AbCommand {
     private final VectorCore vector;
 
     public RemoveLast(VectorCore vector) {
-        super("remove_last", "Removes the last element of the collection", false);
+        super("remove_last", "Removes the last element of the collection", "remove_last", false);
         this.vector = vector;
     }
 

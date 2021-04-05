@@ -21,7 +21,7 @@ public class Commander {
         String cmd = command.split(" ")[0];
         switch(cmd) {
             case "help" -> {
-                
+                cmds.get(cmd).execute(this.cmds);
             }
             default -> {
                 try {

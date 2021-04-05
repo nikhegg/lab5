@@ -1,14 +1,14 @@
-package misc;
+package core;
 import exceptions.NullException;
+import misc.Coordinates;
+import misc.Location;
+import misc.Route;
 import java.util.Scanner;
 
-public class RouteMaker {
+public class Globals {
+    public static String envPath = System.getenv("VECTOR_COLLECTION_V");
 
-    public void throwError() {
-        System.out.print("ERROR in RouteMaker");
-    }
-
-    public Route makeNewRoute() throws NullException { // TODO Check Route Maker
+    public static Route makeNewRoute() throws NullException { // TODO Check Route Maker
         Scanner scanner = new Scanner(System.in);
         System.out.print("\nEnter the name of the new route: ");
         String name = scanner.nextLine();
@@ -17,7 +17,6 @@ public class RouteMaker {
         long cordX = scanner.nextLong();
         System.out.print("\nEnter coordinate Y of the new route: ");
         Integer cordY = scanner.nextInt();
-        if(cordY == null) throw new NullException("The coordinate Y of the route can't be a null");
         Coordinates cords = new Coordinates(cordX, cordY);
         // TODO DAFUQ?
         // java.time.ZonedDateTime date = scanner.next java.time.ZonedDateTime();
@@ -46,19 +45,18 @@ public class RouteMaker {
                 locationOne = null;
             }
             default -> {
-                throwError();
+                System.out.print("ERROR in RouteMaker");
             }
         }
         System.out.print("\nIs there an end location of the route? \nType Y for \"yes\" or N for \"no\": ");
         locationExistence = scanner.next().charAt(0);
         Location locationTwo = null;
         switch(locationExistence) {
-            case 'Y' -> {
+            case 'Y', 'y' -> {
                 System.out.print("\nEnter the name of the end location: ");
-                lname = scanner.nextLine();
+                lname = scanner.nextLine(); // КОСТЫЛЬ 2 ЙОМАЙО
                 lname = scanner.nextLine();
                 if(lname == null) throw new NullException("The name of the end location can't be a null");
-                System.out.print(lname);
                 System.out.print("\nEnter coordinate X of the end location: ");
                 Double lx = scanner.nextDouble();
                 if(lx == null) throw new NullException("The coordinate X of the end location can't be a null");
@@ -69,14 +67,14 @@ public class RouteMaker {
                 if(lz == null) throw new NullException("The coordinate Z of the end location can't be a null");
                 locationTwo = new Location(lname, lx, ly, lz);
             }
-            case 'N' -> {
+            case 'N', 'n' -> {
                 System.out.print("\nThe route " + name + " doesn't have an end location\n");
                 locationTwo = null;
             }
             default -> {
-                throwError();
+                System.out.print("ERROR in RouteMaker");
             }
         }
-        return new Route(name, cords, locationOne, locationTwo, 1.0);// TODO Not all parameters are given to Route
+        return new Route(name, cords, locationOne, locationTwo, 1.0);// TODO Not all parameters are given to Route. What is DISTANCE?
     }
 }

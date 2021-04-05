@@ -1,7 +1,7 @@
 package commands;
 
-import exceptions.NotOverridenException;
+import exceptions.NotOverriddenException;
 
 public interface Command {
-    void execute(String[] args) throws NotOverridenException;
+    void execute(String[] args) throws NotOverriddenException;
 }

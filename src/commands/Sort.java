@@ -5,7 +5,7 @@ public class Sort extends AbCommand {
     private final VectorCore vector;
 
     public Sort(VectorCore vector) {
-        super("sort", "Sorts the collection in normal order");
+        super("sort", "Sorts the collection in normal order", false);
         this.vector = vector;
     }
 

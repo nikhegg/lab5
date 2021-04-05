@@ -7,7 +7,7 @@ public class Info extends AbCommand {
     private final VectorCore vector;
 
     public Info(VectorCore vector) {
-        super("info", "Shows the information about collection (created at, size, etc.)");
+        super("info", "Shows the information about collection (created at, size, etc.)", false);
         this.vector = vector;
     }
 

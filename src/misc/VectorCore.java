@@ -1,6 +1,8 @@
 package misc;
+import core.Globals;
 import java.io.File;
 import java.util.Date;
+import java.util.Objects;
 import java.util.Vector;
 
 public class VectorCore {
@@ -26,12 +28,8 @@ public class VectorCore {
         route.setID(this.vector.size()-1);
     }
 
-    public void addElement() {
-
-    }
-
-    public void updateID() {
-
+    public void updateID(int k, Route v) {
+        this.vector.set(k ,v);
     }
 
     public void clear() {
@@ -43,8 +41,7 @@ public class VectorCore {
     }
 
     public void loadCollection() {
-        String filePath = System.getenv("VECTOR_COLLECTION_V");
-        File csv = new File(filePath);
+        File csv = new File(Globals.envPath);
         if(csv.exists()) {
             if(csv.canRead()) {
 
@@ -52,8 +49,8 @@ public class VectorCore {
         }
     }
 
-    public void saveToTheFile(String path) {
-        File csv = new File(path);
+    public void saveToTheFile() {
+        File csv = new File(Globals.envPath);
         if(csv.exists()) {
             if(csv.canRead()) {
                 if(csv.canWrite()) {
@@ -67,4 +64,24 @@ public class VectorCore {
         return this.vector;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        VectorCore that = (VectorCore) o;
+        return Objects.equals(vector, that.vector) && Objects.equals(creationDate, that.creationDate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(vector, creationDate);
+    }
+
+    @Override
+    public String toString() {
+        return "VectorCore{" +
+                "vector=" + vector +
+                ", creationDate=" + creationDate +
+                '}';
+    }
 }

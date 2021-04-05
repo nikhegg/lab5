@@ -10,7 +10,7 @@ public class Route {
     private Location to; //Поле может быть null
     private Double distance; //Поле может быть null, Значение поля должно быть больше 1
 
-    Route(String name, Coordinates coordinates, Location from, Location to, Double distance) {
+    public Route(String name, Coordinates coordinates, Location from, Location to, Double distance) {
         this.id = -1;
         this.name = name;
         this.coordinates = coordinates;

@@ -11,7 +11,7 @@ public class Clear extends AbCommand{
     }
 
     public void execute(String[] args) {
-        System.out.println("Are you sure that you want to clear the collection?\nType Y for \"yes\" or N for \"no\"");
+        System.out.print("Are you sure that you want to clear the collection?\nType Y for \"yes\" or N for \"no\": ");
         Scanner scanner = new Scanner(System.in);
         char confirmationLetter = scanner.nextLine().charAt(0);
         switch(confirmationLetter) {

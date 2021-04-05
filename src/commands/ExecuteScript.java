@@ -16,7 +16,7 @@ public class ExecuteScript extends AbCommand {
     }
 
     @Override
-    public void execute(String[] args) { // TODO Is it working good?
+    public void execute(String[] args) {
         try {
             File file = new File(args[0]);
             Scanner fsc = new Scanner(file);

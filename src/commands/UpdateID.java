@@ -17,7 +17,6 @@ public class UpdateID extends AbCommand {
         if(args.length <= 0) System.out.println("There is no ID in the message");
         else if(!Globals.isInt(args[0])) System.out.println("ID should be a number");
         else {
-
             try {
                 int id = Globals.getInt(args[0]);
                 if((this.vector.getSize()-1) < id) System.out.println("The collection does not have an element with ID " + id);
@@ -34,6 +33,5 @@ public class UpdateID extends AbCommand {
                 System.out.println(e.getMessage());
             }
         }
-
     }
 }

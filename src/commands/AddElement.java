@@ -4,7 +4,7 @@ import exceptions.IncorrectArgumentException;
 import exceptions.NullException;
 import misc.VectorCore;
 import misc.Route;
-
+// DONE
 public class AddElement extends AbCommand {
     private final VectorCore vector;
 
@@ -15,7 +15,6 @@ public class AddElement extends AbCommand {
 
     @Override
     public void execute(String[] args) {
-        //TODO Route Maker
         Route route = null;
         try {
             route = Globals.makeNewRoute();

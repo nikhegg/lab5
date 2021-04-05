@@ -24,8 +24,7 @@ public class VectorCore {
 
     public void addElement(Route route) {
         this.vector.add(route);
-        System.out.println("Added new route to the collection with ID " + (this.vector.size()-1));
-        route.setID(this.vector.size()-1);
+        System.out.println("\nAdded new route to the collection with ID " + route.getID());
     }
 
     public void updateID(int k, Route v) {

@@ -11,7 +11,10 @@ public class RemoveLast extends AbCommand {
 
     @Override
     public void execute(String[] args) {
-        if(this.vector.getSize() >= 1) this.vector.removeElement(this.vector.getSize()-1);
+        if(this.vector.getSize() >= 1) {
+            this.vector.removeElement(this.vector.getSize()-1);
+            System.out.println("The last element of the collection was successfully removed");
+        }
         else System.out.println("Cannot remove the last element of the collection because the collection is empty");
     }
 }

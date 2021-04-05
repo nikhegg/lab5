@@ -16,7 +16,7 @@ public class Consoler {
     public void start() {
         try {
             System.out.println("| Lab5 Project by Nikita Kuldyshev\n" +
-                    "| Version: 1.8\n");
+                    "| Version: " + Globals.version + "\n");
             this.active = true;
             this.commander.addCmd(new Exit(this));
             this.commander.addCmd(new ExecuteScript(this.commander, this));
@@ -32,10 +32,10 @@ public class Consoler {
                 System.out.println();
             }
         } catch(NoSuchElementException e) {
-            System.out.println("Дрисня какая-то, я ливаю");
+            System.out.println("Чё???");
             System.exit(0);
         } catch (IllegalStateException e) {
-            System.out.println("Непредвиденная ошибка!");
+            System.out.println("Чё");
         }
 
     }

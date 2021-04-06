@@ -4,7 +4,7 @@ import exceptions.IncorrectArgumentException;
 import exceptions.NullException;
 import misc.VectorCore;
 import misc.Route;
-// DONE
+
 public class AddElement extends AbCommand {
     private final VectorCore vector;
 

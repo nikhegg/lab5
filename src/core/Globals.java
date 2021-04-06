@@ -1,6 +1,6 @@
 package core;
 import exceptions.IncorrectArgumentException;
-import exceptions.NonIntStringException;
+import exceptions.NonNumberStringException;
 import exceptions.NullException;
 import misc.Coordinates;
 import misc.Location;
@@ -8,9 +8,33 @@ import misc.Route;
 import java.util.Scanner;
 
 public class Globals {
-    public static double version = 1.9;
-    public static String envPath = System.getenv("VECTOR_COLLECTION_V");
-    public static long routesCreated = 0;
+    private static double version = 2.1;
+    private static String envPath = System.getenv("VECTOR_COLLECTION_V");
+    private static long routesCreated = 0;
+
+    public static double getVersion() {
+        return version;
+    }
+
+    public static String getEnvPath() {
+        return envPath;
+    }
+
+    public static long getRoutesCreated() {
+        return routesCreated;
+    }
+
+    public static void incRoutesCreated() {
+        routesCreated++;
+    }
+
+    public static void decRoutesCreated() {
+        routesCreated--;
+    }
+
+    public static void modifyRoutesCreated(long number) {
+        routesCreated = number;
+    }
 
     public static Route makeNewRoute() throws NullException, IncorrectArgumentException {
         Scanner scanner = new Scanner(System.in);
@@ -67,18 +91,19 @@ public class Globals {
             case 'N', 'n' -> System.out.print("\nThe route " + name + " doesn't have an end location");
             default -> throw new IncorrectArgumentException("Should get Y/N, got " + locationExistence);
         }
-        routesCreated++;
-        /*double distance = 0.0;
+        incRoutesCreated();
+        Double distance = null;
         if(locationOne != null && locationTwo != null) {
-
+            distance = Math.sqrt(Math.pow(Math.abs((locationOne.getX() - locationTwo.getX())), 2) + Math.pow(Math.abs(locationOne.getY() - locationTwo.getY()), 2) + Math.pow(Math.abs(locationOne.getZ() - locationTwo.getZ()), 2));
+            distance = (double) Math.round(distance * 100)/100;
         } else if(locationOne == null && locationTwo != null) {
-
+            distance = Math.sqrt(Math.pow(Math.abs((cords.getX() - locationTwo.getX())), 2) + Math.pow(Math.abs(cords.getY() - locationTwo.getY()), 2) + Math.pow(Math.abs(locationTwo.getZ()), 2));
+            distance = (double) Math.round(distance * 100)/100;
         } else if(locationOne != null && locationTwo == null) {
-
-        } else if(locationOne == null && locationTwo == null) {
-
-        }*/
-        return new Route(name, cords, locationOne, locationTwo, 2.0);
+            distance = Math.sqrt(Math.pow(Math.abs((locationOne.getX() - cords.getX())), 2) + Math.pow(Math.abs(locationOne.getY() - cords.getY()), 2) + Math.pow(Math.abs(locationOne.getZ()), 2));
+            distance = (double) Math.round(distance * 100)/100;
+        }
+        return new Route(name, cords, locationOne, locationTwo, distance);
     }
 
     public static boolean isInt(String word) {
@@ -90,9 +115,22 @@ public class Globals {
         }
     }
 
-    public static int getInt(String word) throws NonIntStringException {
-        if(Globals.isInt(word)) {
-            return Integer.parseInt(word);
-        } else throw new NonIntStringException("Given argument is not a number");
+    public static int getInt(String word) throws NonNumberStringException {
+        if(Globals.isInt(word)) return Integer.parseInt(word);
+        else throw new NonNumberStringException("Given argument is not a number");
+    }
+
+    public static boolean isDouble(String word) {
+        try {
+            Double.parseDouble(word);
+            return true;
+        } catch(Exception e) {
+            return false;
+        }
+    }
+
+    public static double getDouble(String word) throws NonNumberStringException {
+        if(Globals.isDouble(word)) return Double.parseDouble(word);
+        else throw new NonNumberStringException("Given argument is not a number");
     }
 }

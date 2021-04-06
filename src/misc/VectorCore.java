@@ -22,6 +22,22 @@ public class VectorCore {
         return this.creationDate;
     }
 
+    public String getElementInfo(Route route) {
+        String message = "";
+        message += "\nCID: " + getVector().indexOf(route) + " | Content:\n\t• Route name: " + route.getName() +
+                "\n\t• ID: " + route.getID() +
+                "\n\t• CollectionID: " + getVector().indexOf(route) +
+                "\n\t• Coordinates: (" + route.getCoordinates().getX() + ", " + route.getCoordinates().getY() + ")" +
+                "\n\t• Creation date: " + route.getCreationDate().getDayOfMonth() + "/" + route.getCreationDate().getMonthValue() + "/" + route.getCreationDate().getYear() + " " + route.getCreationDate().getHour() + ":" + route.getCreationDate().getMinute();
+        if(route.getStartLocation() == null) message += "\n\t• Start location: No start location";
+        else message += "\n\t• Start location: " + route.getStartLocation().getName() + " (" + route.getStartLocation().getX() + ", " + route.getStartLocation().getY() + ", " + route.getStartLocation().getZ() + ")";
+        if(route.getEndLocation() == null) message += "\n\t• End location: No end location";
+        else message += "\n\t• End location: " + route.getEndLocation().getName() + " (" + route.getEndLocation().getX() + ", " + route.getEndLocation().getY() + ", " + route.getEndLocation().getZ() + ")";
+        if(route.getDistance() == null) message += "\n\t• Distance: Unknown\n\n";
+        else message += "\n\t• Distance: " + route.getDistance() + "\n";
+        return message;
+    }
+
     public void addElement(Route route) {
         this.vector.add(route);
         System.out.println("\nAdded new route to the collection with ID " + route.getID());
@@ -40,7 +56,7 @@ public class VectorCore {
     }
 
     public void loadCollection() {
-        File csv = new File(Globals.envPath);
+        File csv = new File(Globals.getEnvPath());
         if(csv.exists()) {
             if(csv.canRead()) {
 
@@ -49,7 +65,7 @@ public class VectorCore {
     }
 
     public void saveToTheFile() {
-        File csv = new File(Globals.envPath);
+        File csv = new File(Globals.getEnvPath());
         if(csv.exists()) {
             if(csv.canRead()) {
                 if(csv.canWrite()) {

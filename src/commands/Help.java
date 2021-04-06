@@ -1,6 +1,6 @@
 package commands;
 import java.util.HashMap;
-// DONE
+
 public class Help extends AbCommand {
     public Help(){
         super("help", "Shows all available commands", "help <nothing or command>", false);

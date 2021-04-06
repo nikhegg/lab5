@@ -16,7 +16,7 @@ public class Consoler {
     public void start() {
         try {
             System.out.println("| Lab5 Project by Nikita Kuldyshev\n" +
-                    "| Version: " + Globals.version + "\n");
+                    "| Version: " + Globals.getVersion() + "\n");
             this.active = true;
             this.commander.addCmd(new Exit(this));
             this.commander.addCmd(new ExecuteScript(this.commander, this));

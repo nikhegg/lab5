@@ -19,7 +19,7 @@ public class Main {
                 new Save(collection),
                 new Show(collection),
                 new Sort(collection),
-                new UpdateID(collection));
+                new Update(collection));
         //FileOperator fileOperator = new FileOperator(Globals.envPath);
         Consoler consoler = new Consoler(commander);
         consoler.start();

@@ -26,7 +26,7 @@ public class ExecuteScript extends AbCommand {
                 commander.sendCmd(msg, this.consoler);
             }
         } catch(FileNotFoundException e) {
-            System.out.println("Файла не существует");
+            System.out.println("File does not exist");
         }
     }
 }

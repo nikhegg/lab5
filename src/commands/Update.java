@@ -1,14 +1,14 @@
 package commands;
 import core.Globals;
-import exceptions.NonIntStringException;
+import exceptions.NonNumberStringException;
 import misc.Route;
 import misc.VectorCore;
 
-public class UpdateID extends AbCommand {
+public class Update extends AbCommand {
     private final VectorCore vector;
 
-    public UpdateID(VectorCore vector) {
-        super("update", "Updates an elements of collection with a specified ID", "show <id>",false);
+    public Update(VectorCore vector) {
+        super("update", "Updates an elements of collection with a specified ID", "update <id>",false);
         this.vector = vector;
     }
 
@@ -27,7 +27,7 @@ public class UpdateID extends AbCommand {
                     route = Globals.makeNewRoute();
                     this.vector.updateID(key, route);
                 }
-            } catch(NonIntStringException e) {
+            } catch(NonNumberStringException e) {
                 System.out.println("ID should be a number");
             } catch(Exception e) {
                 System.out.println(e.getMessage());

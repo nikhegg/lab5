@@ -4,7 +4,7 @@ import exceptions.IncorrectArgumentException;
 import exceptions.NullException;
 import misc.Route;
 import misc.VectorCore;
-// DONE
+
 public class AddIfMin extends AbCommand {
     private final VectorCore vector;
 
@@ -19,16 +19,18 @@ public class AddIfMin extends AbCommand {
         try {
             route = Globals.makeNewRoute();
         } catch(NullException | IncorrectArgumentException e) {
-            System.out.println("Hren'");
             System.out.println(e.getMessage());
         }
         if(route != null) {
             Double minDistance = -1.0;
             for (Route vectorRoute : this.vector.getVector()) {
-                if(vectorRoute.getDistance() < minDistance || minDistance == -1.0) minDistance = vectorRoute.getDistance();
+                if(route.getDistance() != null && vectorRoute.getDistance() != null && (vectorRoute.getDistance() < minDistance || minDistance == -1.0)) minDistance = vectorRoute.getDistance();
             }
-            if(minDistance < route.getDistance() || minDistance == -1.0) this.vector.addElement(route);
-            else System.out.println("Route " + route.getName() + " has not the smallest value of distance so it was not added to the collection");
+            if(route.getDistance() == null || minDistance > route.getDistance() || minDistance == -1.0) this.vector.addElement(route);
+            else {
+                System.out.println("\nRoute " + route.getName() + " has not the smallest value of distance so it was not added to the collection");
+                Globals.decRoutesCreated();
+            }
         }
     }
 }

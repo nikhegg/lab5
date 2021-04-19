@@ -1,4 +1,5 @@
 package commands;
+import core.ConsolerMode;
 import misc.Route;
 import misc.VectorCore;
 import java.util.Vector;
@@ -12,7 +13,7 @@ public class MinByDistance extends AbCommand {
     }
 
     @Override
-    public void execute(String[] args) {
+    public void execute(String[] args, ConsolerMode mode) {
         if(this.vector.getSize() <= 0) System.out.println("The collection is empty");
         else {
             Double distance = null;

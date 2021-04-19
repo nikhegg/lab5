@@ -1,5 +1,7 @@
 package commands;
+import core.ConsolerMode;
 import core.Globals;
+import core.RouteMaker;
 import exceptions.NonNumberStringException;
 import misc.Route;
 import misc.VectorCore;
@@ -13,7 +15,7 @@ public class Update extends AbCommand {
     }
 
     @Override
-    public void execute(String[] args) {
+    public void execute(String[] args, ConsolerMode mode) {
         if(args.length <= 0) System.out.println("There is no ID in the message");
         else if(!Globals.isInt(args[0])) System.out.println("ID should be a number");
         else {
@@ -24,7 +26,7 @@ public class Update extends AbCommand {
                     int key;
                     Route route = null;
                     key = Integer.parseInt(args[0]);
-                    route = Globals.makeNewRoute();
+                    route = new RouteMaker().makeNewRoute(mode);
                     this.vector.updateID(key, route);
                 }
             } catch(NonNumberStringException e) {

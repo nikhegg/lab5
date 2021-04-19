@@ -1,4 +1,6 @@
 package commands;
+import core.Consoler;
+import core.ConsolerMode;
 import exceptions.NotOverriddenException;
 import java.util.HashMap;
 
@@ -31,11 +33,11 @@ public abstract class AbCommand implements Command {
         return hidden;
     }
 
-    public void execute(String[] args) throws NotOverriddenException {
+    public void execute(String[] args, ConsolerMode mode) throws NotOverriddenException {
         throw new NotOverriddenException("Execute method of \"" + this.name + "\" command is not overridden");
     }
 
-    public void execute(HashMap<String, AbCommand> map, String[] args) throws NotOverriddenException {
+    public void execute(HashMap<String, AbCommand> map, String[] args, ConsolerMode mode) throws NotOverriddenException {
         throw new NotOverriddenException("Execute method of \"" + this.name + "\" commands is not overridden");
     }
 

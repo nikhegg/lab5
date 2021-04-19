@@ -1,4 +1,5 @@
 package commands;
+import core.ConsolerMode;
 import core.Globals;
 import exceptions.NonNumberStringException;
 import misc.VectorCore;
@@ -12,7 +13,7 @@ public class RemoveByID extends AbCommand {
     }
 
     @Override
-    public void execute(String[] args) {
+    public void execute(String[] args, ConsolerMode mode) {
         if(args.length <= 0) System.out.println("There is no ID in the message");
         else if(!Globals.isInt(args[0])) System.out.println("ID should be a number");
         else {

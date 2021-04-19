@@ -1,4 +1,5 @@
 package commands;
+import core.ConsolerMode;
 import misc.VectorCore;
 
 public class Save extends AbCommand {
@@ -10,7 +11,7 @@ public class Save extends AbCommand {
     }
 
     @Override
-    public void execute(String[] args) {
+    public void execute(String[] args, ConsolerMode mode) {
 
     }
 }

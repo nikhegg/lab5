@@ -1,25 +1,25 @@
 ToDos:
 1. DONE Route Distance calculation @ Globals.makeNewRoute()
 2. FIXED Update.java destroys Show.java command via Globals.makeNewRoute()
-3. TODO Is RouteMaker okay now?
-4. TODO Is ExecuteScript.java okay now?
+3. FIXED RouteMaker.java
+4. FIXED ExecuteScript.java
 5. TODO Load the collection on start
-6. TODO MinByDistance.java DAFUQ
-7. TODO Fix AddIfMin.java bug (Ignores Distance)
+6. FIXED MinByDistance.java
+7. FIXED Fix AddIfMin.java bug (Ignores Distance)
 
 DONE:
 AddElement.java
 AddIfMin.java
 Clear.java
-CountLessThanDistance.java - CHECK
-ExecuteScript.java - PARTLY
+CountLessThanDistance.java
+ExecuteScript.java
 FilterByDistance.java
 Help.java
 Info.java
-MinByDistance.java - NOPE
+MinByDistance.java
 RemoveByID.java
 RemoveLast.java
 Save.java - NOPE
 Show.java
-Sort.java - NOPE
+Sort.java
 Update.java

@@ -1,5 +1,6 @@
 package commands;
 import core.Consoler;
+import core.ConsolerMode;
 
 public class Exit extends AbCommand {
     private final Consoler consoler;
@@ -9,7 +10,7 @@ public class Exit extends AbCommand {
         this.consoler = consoler;
     }
 
-    public void execute(String[] args) {
+    public void execute(String[] args, ConsolerMode mode) {
         System.out.println("Shutting down the program...");
         this.consoler.stop();
     }

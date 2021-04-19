@@ -1,4 +1,5 @@
 package commands;
+import core.ConsolerMode;
 import misc.Route;
 import misc.VectorCore;
 
@@ -11,7 +12,7 @@ public class Show extends AbCommand {
     }
 
     @Override
-    public void execute(String[] args) {
+    public void execute(String[] args, ConsolerMode mode) {
         /*if(!vector.getCollection().equals("")) System.out.println(vector.getCollection());
         else System.out.println("The collection has no content inside");*/
         /*String message = "СID | Content\n";

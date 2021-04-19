@@ -1,5 +1,7 @@
 package commands;
+import core.ConsolerMode;
 import core.Globals;
+import core.RouteMaker;
 import exceptions.IncorrectArgumentException;
 import exceptions.NullException;
 import misc.VectorCore;
@@ -14,14 +16,13 @@ public class AddElement extends AbCommand {
     }
 
     @Override
-    public void execute(String[] args) {
+    public void execute(String[] args, ConsolerMode mode) {
         Route route = null;
         try {
-            route = Globals.makeNewRoute();
+            route = new RouteMaker().makeNewRoute(mode);
         } catch(NullException | IncorrectArgumentException e) {
             System.out.println(e.getMessage());
         }
-
         if(route != null) {
             this.vector.addElement(route);
         }

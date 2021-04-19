@@ -1,4 +1,6 @@
 package commands;
+import core.ConsolerMode;
+
 import java.util.HashMap;
 
 public class Help extends AbCommand {
@@ -6,7 +8,7 @@ public class Help extends AbCommand {
         super("help", "Shows all available commands", "help <nothing or command>", false);
     }
 
-    public void execute(HashMap<String, AbCommand> map, String[] args) {
+    public void execute(HashMap<String, AbCommand> map, String[] args, ConsolerMode mode) {
         if(args.length == 0 || map.get(args[0]) == null) {
             System.out.println("All commands:");
             map.forEach((k,v) -> {

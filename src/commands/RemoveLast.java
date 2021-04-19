@@ -1,4 +1,5 @@
 package commands;
+import core.ConsolerMode;
 import misc.VectorCore;
 
 public class RemoveLast extends AbCommand {
@@ -10,7 +11,7 @@ public class RemoveLast extends AbCommand {
     }
 
     @Override
-    public void execute(String[] args) {
+    public void execute(String[] args, ConsolerMode mode) {
         if(this.vector.getSize() >= 1) {
             this.vector.removeElement(this.vector.getSize()-1);
             System.out.println("The last element of the collection was successfully removed");

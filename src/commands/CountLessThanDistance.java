@@ -1,4 +1,5 @@
 package commands;
+import core.ConsolerMode;
 import core.Globals;
 import exceptions.NonNumberStringException;
 import misc.Route;
@@ -13,7 +14,7 @@ public class CountLessThanDistance extends AbCommand {
     }
 
     @Override
-    public void execute(String[] args) {
+    public void execute(String[] args, ConsolerMode mode) {
         if(args.length <= 0) System.out.println("There is no value in the message");
         else if(!Globals.isDouble(args[0])) System.out.println("Minimal value should be a number");
         else {

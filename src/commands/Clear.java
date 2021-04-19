@@ -1,4 +1,5 @@
 package commands;
+import core.ConsolerMode;
 import misc.VectorCore;
 import java.util.Scanner;
 
@@ -10,7 +11,7 @@ public class Clear extends AbCommand{
         this.vector = vector;
     }
 
-    public void execute(String[] args) {
+    public void execute(String[] args, ConsolerMode mode) {
         System.out.print("Are you sure that you want to clear the collection?\nType Y for \"yes\" or N for \"no\": ");
         Scanner scanner = new Scanner(System.in);
         char confirmationLetter = scanner.nextLine().charAt(0);

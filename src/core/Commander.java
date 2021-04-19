@@ -20,10 +20,10 @@ public class Commander {
         String[] args = Arrays.copyOfRange(command.split(" "), 1, command.split(" ").length);
         String cmd = command.split(" ")[0];
         switch(cmd) {
-            case "help" -> cmds.get(cmd).execute(this.cmds, args);
+            case "help" -> cmds.get(cmd).execute(this.cmds, args, consoler.getMode());
             default -> {
                 try {
-                    cmds.get(cmd).execute(args);
+                    cmds.get(cmd).execute(args, consoler.getMode());
                 } catch(Exception e) {
                     System.out.println("Unknown command. Type \"help\" to get the list of commands");
                 }

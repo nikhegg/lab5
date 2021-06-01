@@ -9,19 +9,32 @@ public class VectorCore {
     private final Vector<Route> vector;
     private final Date creationDate;
 
+    /**
+     *
+     */
     public VectorCore() {
         this.vector = new Vector<>();
         this.creationDate = new Date();
     }
 
+    /**
+     * @return
+     */
     public int getSize() {
         return this.vector.size();
     }
 
+    /**
+     * @return
+     */
     public Date getCreationDate() {
         return this.creationDate;
     }
 
+    /**
+     * @param route
+     * @return
+     */
     public String getElementInfo(Route route) {
         String message = "";
         message += "\nCID: " + getVector().indexOf(route) + " | Content:\n\t• Route name: " + route.getName() +
@@ -38,47 +51,47 @@ public class VectorCore {
         return message;
     }
 
+    /**
+     * @param route
+     */
     public void addElement(Route route) {
         this.vector.add(route);
         System.out.println("\nAdded new route to the collection with ID " + route.getID());
     }
 
+    /**
+     * @param k
+     * @param v
+     */
     public void updateID(int k, Route v) {
         this.vector.set(k ,v);
     }
 
+    /**
+     *
+     */
     public void clear() {
         this.vector.clear();
     }
 
+    /**
+     * @param id
+     */
     public void removeElement(int id) {
         this.vector.remove(id);
     }
 
-    public void loadCollection() {
-        File csv = new File(Globals.getEnvPath());
-        if(csv.exists()) {
-            if(csv.canRead()) {
-
-            } else System.out.println("ERROR: Tried to load the collection from file, but it is not readable");
-        }
-    }
-
-    public void saveToTheFile() {
-        File csv = new File(Globals.getEnvPath());
-        if(csv.exists()) {
-            if(csv.canRead()) {
-                if(csv.canWrite()) {
-
-                } else System.out.println("ERROR: Unable to save the collection to the file. Missing write permissions");
-            }
-        }
-    }
-
+    /**
+     * @return
+     */
     public Vector<Route> getVector() {
         return this.vector;
     }
 
+    /**
+     * @param o
+     * @return
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -87,11 +100,17 @@ public class VectorCore {
         return Objects.equals(vector, that.vector) && Objects.equals(creationDate, that.creationDate);
     }
 
+    /**
+     * @return
+     */
     @Override
     public int hashCode() {
         return Objects.hash(vector, creationDate);
     }
 
+    /**
+     * @return
+     */
     @Override
     public String toString() {
         return "VectorCore{" +

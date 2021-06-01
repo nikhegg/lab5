@@ -10,44 +10,77 @@ public class Route {
     private Location to; //Поле может быть null
     private Double distance; //Поле может быть null, Значение поля должно быть больше 1
 
-    public Route(String name, Coordinates coordinates, Location from, Location to, Double distance) {
+    /**
+     * @param name
+     * @param coordinates
+     * @param creationDate
+     * @param from
+     * @param to
+     * @param distance
+     */
+    public Route(String name, Coordinates coordinates, java.time.ZonedDateTime creationDate, Location from, Location to, Double distance) {
         this.id = Globals.getRoutesCreated();
         this.name = name;
         this.coordinates = coordinates;
-        this.creationDate = java.time.ZonedDateTime.now();
+        this.creationDate = creationDate;
         this.from = from;
         this.to = to;
         this.distance = distance;
     }
 
+    /**
+     * @param id
+     */
     public void setID(long id) {
         this.id = id;
+        if(Globals.getRoutesCreated() < id) Globals.modifyRoutesCreated(id);
     }
 
+    /**
+     * @return
+     */
     public long getID() {
         return this.id;
     }
 
+    /**
+     * @return
+     */
     public String getName() {
         return this.name;
     }
 
+    /**
+     * @return
+     */
     public Coordinates getCoordinates() {
         return this.coordinates;
     }
 
+    /**
+     * @return
+     */
     public java.time.ZonedDateTime getCreationDate() {
         return this.creationDate;
     }
 
+    /**
+     * @return
+     */
     public Location getStartLocation() {
         return this.from;
     }
 
+    /**
+     * @return
+     */
     public Location getEndLocation() {
         return this.to;
     }
 
+    /**
+     * @return
+     */
     public Double getDistance() {
         return this.distance;
     }

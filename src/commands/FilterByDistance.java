@@ -8,11 +8,18 @@ import misc.VectorCore;
 public class FilterByDistance extends AbCommand {
     public final VectorCore vector;
 
+    /**
+     * @param vector
+     */
     public FilterByDistance(VectorCore vector) {
         super("filter_by_distance", "Displays all elements of the collection with distance value given by user", "filter_by_distance", false);
         this.vector = vector;
     }
 
+    /**
+     * @param args
+     * @param mode
+     */
     @Override
     public void execute(String[] args, ConsolerMode mode) {
         if(args.length <= 0) System.out.println("There is no number as an argument in the message");

@@ -3,6 +3,9 @@ import commands.*;
 import misc.VectorCore;
 
 public class Main {
+    /**
+     * @param args
+     */
     public static void main(String[] args) {
         VectorCore collection = new VectorCore();
         Commander commander = new Commander(
@@ -20,7 +23,8 @@ public class Main {
                 new Show(collection),
                 new Sort(collection),
                 new Update(collection));
-        //FileOperator fileOperator = new FileOperator(Globals.envPath);
+        FileOperator fileOperator = new FileOperator();
+        fileOperator.loadCSVCollection(collection);
         Consoler consoler = new Consoler(commander);
         consoler.start();
     }

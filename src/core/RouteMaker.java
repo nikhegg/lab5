@@ -1,6 +1,4 @@
 package core;
-import exceptions.IncorrectArgumentException;
-import exceptions.NullException;
 import misc.Coordinates;
 import misc.Location;
 import misc.Route;
@@ -9,16 +7,26 @@ import java.util.Scanner;
 public class RouteMaker {
     private Scanner scanner;
 
+    /**
+     *
+     */
     public RouteMaker() {
         this.scanner = Consoler.getScanner();
     }
 
-    public Route makeNewRoute(ConsolerMode mode) throws NullException, IncorrectArgumentException {
+    /**
+     * @param mode
+     * @return
+     */
+    public Route makeNewRoute(ConsolerMode mode) {
         //this.scanner = new Scanner(System.in);
         System.out.print("Enter the name of the new route: ");
         String name = this.scanner.nextLine();
         if(mode == ConsolerMode.SCRIPT) System.out.println(name);
-        if(name == null) throw new NullException("The name of the route can't be a null");
+        if(name == null) {
+            System.out.println("The name of the route can't be a null");
+            return null;
+        }
         System.out.print("Enter coordinate X of the new route: ");
         //long cordX = this.scanner.nextLong();
         long cordX;
@@ -48,12 +56,16 @@ public class RouteMaker {
         if(mode == ConsolerMode.SCRIPT) System.out.println(locationExistence);
         Location locationOne = null;
         switch(locationExistence) {
-            case 'Y', 'y' -> {
+            case 'Y':
+            case 'y':
                 System.out.print("\nEnter the name of the start location: ");
                 locationName = this.scanner.nextLine();
                 locationName = this.scanner.nextLine();
                 if(mode == ConsolerMode.SCRIPT) System.out.println(locationName);
-                if(locationName == null) throw new NullException("The name of the start location can't be a null");
+                if(locationName == null) {
+                    System.out.println("The name of the start location can't be a null");
+                    return null;
+                }
                 System.out.print("Enter coordinate X of the start location: ");
                 //Double lx = this.scanner.nextDouble();
                 Double lx;
@@ -88,62 +100,75 @@ public class RouteMaker {
 
                 if(mode == ConsolerMode.SCRIPT) System.out.println(lz);
                 locationOne = new Location(locationName, lx, ly, lz);
-            }
-            case 'N', 'n' -> System.out.print("\nThe route " + name + " doesn't have a start location\n");
-            default -> throw new IncorrectArgumentException("Should get Y/N, got " + locationExistence);
+                break;
+            case 'N':
+            case 'n':
+                System.out.print("\nThe route " + name + " doesn't have a start location\n");
+                break;
+            default:
+                System.out.println("Should get Y/N, got " + locationExistence);
+                return null;
         }
         System.out.print("\nIs there an end location of the route? \nType Y for \"yes\" or N for \"no\": ");
         locationExistence = this.scanner.next().charAt(0);
         if(mode == ConsolerMode.SCRIPT) System.out.println(locationExistence);
         Location locationTwo = null;
         switch(locationExistence) {
-            case 'Y', 'y' -> {
+            case 'Y':
+            case 'y':
                 System.out.print("\nEnter the name of the end location: ");
                 locationName = this.scanner.nextLine();
                 locationName = this.scanner.nextLine();
-                if(mode == ConsolerMode.SCRIPT) System.out.println(locationName);
-                if(locationName == null) throw new NullException("The name of the end location can't be a null");
+                if (mode == ConsolerMode.SCRIPT) System.out.println(locationName);
+                if (locationName == null) {
+                    System.out.println("The name of the end location can't be a null");
+                    return null;
+                }
                 System.out.print("Enter coordinate X of the end location: ");
                 //Double lx = this.scanner.nextDouble();
                 Double lx;
                 try {
                     lx = Double.parseDouble(this.scanner.nextLine());
-                } catch(NumberFormatException e) {
+                } catch (NumberFormatException e) {
                     System.out.println("Coordinate X should be a number");
                     return null;
                 }
 
-                if(mode == ConsolerMode.SCRIPT) System.out.println(lx);
+                if (mode == ConsolerMode.SCRIPT) System.out.println(lx);
                 //if(lx == null) throw new NullException("The coordinate X of the end location can't be a null");
                 System.out.print("Enter coordinate Y of the end location: ");
                 //int ly = this.scanner.nextInt();
                 int ly;
                 try {
                     ly = Integer.parseInt(this.scanner.nextLine());
-                } catch(NumberFormatException e) {
+                } catch (NumberFormatException e) {
                     System.out.println("Coordinate Y should be a number");
                     return null;
                 }
 
-                if(mode == ConsolerMode.SCRIPT) System.out.println(ly);
+                if (mode == ConsolerMode.SCRIPT) System.out.println(ly);
                 System.out.print("Enter coordinate Z of the end location: ");
                 //Integer lz = this.scanner.nextInt();
                 Integer lz;
                 try {
                     lz = Integer.parseInt(this.scanner.nextLine());
-                } catch(NumberFormatException e) {
+                } catch (NumberFormatException e) {
                     System.out.println("Coordinate Z should be a number");
                     return null;
                 }
 
-                if(mode == ConsolerMode.SCRIPT) System.out.println(lz);
+                if (mode == ConsolerMode.SCRIPT) System.out.println(lz);
                 //if(lz == null) throw new NullException("The coordinate Z of the end location can't be a null");
                 locationTwo = new Location(locationName, lx, ly, lz);
-            }
-            case 'N', 'n' -> System.out.print("\nThe route " + name + " doesn't have an end location");
-            default -> throw new IncorrectArgumentException("Should get Y/N, got " + locationExistence);
+                break;
+            case 'N':
+            case 'n':
+                System.out.print("\nThe route " + name + " doesn't have an end location");
+                break;
+            default:
+                System.out.println("Should get Y/N, got " + locationExistence);
+                return null;
         }
-        Globals.incRoutesCreated();
         Double distance = null;
         if(locationOne != null && locationTwo != null) {
             distance = Math.sqrt(Math.pow(Math.abs((locationOne.getX() - locationTwo.getX())), 2) + Math.pow(Math.abs(locationOne.getY() - locationTwo.getY()), 2) + Math.pow(Math.abs(locationOne.getZ() - locationTwo.getZ()), 2));
@@ -155,7 +180,12 @@ public class RouteMaker {
             distance = Math.sqrt(Math.pow(Math.abs((locationOne.getX() - cords.getX())), 2) + Math.pow(Math.abs(locationOne.getY() - cords.getY()), 2) + Math.pow(Math.abs(locationOne.getZ()), 2));
             distance = (double) Math.round(distance * 100)/100;
         }
-        scanner.nextLine();
-        return new Route(name, cords, locationOne, locationTwo, distance);
+        if(distance != null && distance < 1) {
+            System.out.println("The route" + name + " was not saved because its' distance is less than 1 (Distance: " + distance + ")");
+            return null;
+        }
+        if(scanner.hasNextLine()) scanner.nextLine();
+        Globals.incRoutesCreated();
+        return new Route(name.trim(), cords, java.time.ZonedDateTime.now(), locationOne, locationTwo, distance);
     }
 }

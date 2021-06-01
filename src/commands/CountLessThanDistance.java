@@ -8,11 +8,18 @@ import misc.VectorCore;
 public class CountLessThanDistance extends AbCommand {
     private final VectorCore vector;
 
+    /**
+     * @param vector
+     */
     public CountLessThanDistance(VectorCore vector) {
         super("count_less_than_distance", "Counts how many elements with distance that is lower than an entered value", "count_less_than_distance <distance>",false);
         this.vector = vector;
     }
 
+    /**
+     * @param args
+     * @param mode
+     */
     @Override
     public void execute(String[] args, ConsolerMode mode) {
         if(args.length <= 0) System.out.println("There is no value in the message");

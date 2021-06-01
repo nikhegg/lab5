@@ -6,11 +6,18 @@ import misc.VectorCore;
 public class Sort extends AbCommand {
     private final VectorCore vector;
 
+    /**
+     * @param vector
+     */
     public Sort(VectorCore vector) {
         super("sort", "Sorts the collection in normal order", "sort",false);
         this.vector = vector;
     }
 
+    /**
+     * @param args
+     * @param mode
+     */
     @Override
     public void execute(String[] args, ConsolerMode mode) {
         boolean sortIsDone = false;

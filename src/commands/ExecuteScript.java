@@ -12,11 +12,18 @@ public class ExecuteScript extends AbCommand {
     Vector<String> usedScripts = new Vector<>();
     private String currentFile = null;
 
+    /**
+     * @param consoler
+     */
     public ExecuteScript(Consoler consoler) {
         super("execute_script", "Executes the script from a specified file", "execute_script <path>",false);
         this.consoler = consoler;
     }
 
+    /**
+     * @param args
+     * @param mode
+     */
     @Override
     public void execute(String[] args, ConsolerMode mode) {
         try {

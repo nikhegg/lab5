@@ -10,19 +10,22 @@ import misc.VectorCore;
 public class AddIfMin extends AbCommand {
     private final VectorCore vector;
 
+    /**
+     * @param vector
+     */
     public AddIfMin(VectorCore vector) {
         super("add_if_min", "Adds an element to the collection if it has the smallest value in comparison with elements of the collection", "add_if_min",false);
         this.vector = vector;
     }
 
+    /**
+     * @param args
+     * @param mode
+     */
     @Override
     public void execute(String[] args, ConsolerMode mode) {
-        Route route = null;
-        try {
-            route = new RouteMaker().makeNewRoute(mode);
-        } catch(NullException | IncorrectArgumentException e) {
-            System.out.println(e.getMessage());
-        }
+        Route route = new RouteMaker().makeNewRoute(mode);
+
         if(route != null) {
             Double minDistance = -1.0;
             for (Route vectorRoute : this.vector.getVector()) {

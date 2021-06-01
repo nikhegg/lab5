@@ -6,6 +6,12 @@ public class Location {
     private Integer z; //Поле не может быть null
     private String name; //Поле может быть null
 
+    /**
+     * @param name
+     * @param x
+     * @param y
+     * @param z
+     */
     public Location(String name, Double x, int y, Integer z) {
         this.name = name;
         this.x = x;

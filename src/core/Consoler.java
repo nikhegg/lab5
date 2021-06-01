@@ -11,12 +11,18 @@ public class Consoler {
     private static Scanner commandReader = new Scanner(System.in);
     private ConsolerMode mode;
 
+    /**
+     * @param commander
+     */
     public Consoler(Commander commander) {
         this.active = false;
         this.commander = commander;
         this.mode = ConsolerMode.USER;
     }
 
+    /**
+     *
+     */
     public void start() {
         try {
             System.out.println("| Lab5 Project by Nikita Kuldyshev\n" +
@@ -42,6 +48,10 @@ public class Consoler {
 
     }
 
+    /**
+     * @param scannedScript
+     * @return
+     */
     public boolean doScript(Scanner scannedScript) {
         setMode(ConsolerMode.SCRIPT);
         declareNewScanner(scannedScript);
@@ -63,26 +73,44 @@ public class Consoler {
         return true;
     }
 
+    /**
+     *
+     */
     public void stop() {
         this.active = false;
     }
 
+    /**
+     * @param scanner
+     */
     public void declareNewScanner(Scanner scanner) {
         commandReader = scanner;
     }
 
+    /**
+     *
+     */
     public void restoreScanner() {
         commandReader = new Scanner(System.in);
     }
 
+    /**
+     * @param mode
+     */
     public void setMode(ConsolerMode mode) {
         this.mode = mode;
     }
 
+    /**
+     * @return
+     */
     public static Scanner getScanner() {
         return commandReader;
     }
 
+    /**
+     * @return
+     */
     public ConsolerMode getMode() {
         return this.mode;
     }

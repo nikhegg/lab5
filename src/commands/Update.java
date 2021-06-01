@@ -9,11 +9,18 @@ import misc.VectorCore;
 public class Update extends AbCommand {
     private final VectorCore vector;
 
+    /**
+     * @param vector
+     */
     public Update(VectorCore vector) {
         super("update", "Updates an elements of collection with a specified ID", "update <id>",false);
         this.vector = vector;
     }
 
+    /**
+     * @param args
+     * @param mode
+     */
     @Override
     public void execute(String[] args, ConsolerMode mode) {
         if(args.length <= 0) System.out.println("There is no ID in the message");
@@ -27,7 +34,7 @@ public class Update extends AbCommand {
                     Route route = null;
                     key = Integer.parseInt(args[0]);
                     route = new RouteMaker().makeNewRoute(mode);
-                    this.vector.updateID(key, route);
+                    if(route != null) this.vector.updateID(key, route);
                 }
             } catch(NonNumberStringException e) {
                 System.out.println("ID should be a number");

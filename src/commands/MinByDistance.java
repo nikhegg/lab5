@@ -7,11 +7,18 @@ import java.util.Vector;
 public class MinByDistance extends AbCommand {
     private final VectorCore vector;
 
+    /**
+     * @param vector
+     */
     public MinByDistance(VectorCore vector) {
         super("min_by_distance", "Finds one of elements in the collection which has the less distance parameter", "min_by_distance", false);
         this.vector = vector;
     }
 
+    /**
+     * @param args
+     * @param mode
+     */
     @Override
     public void execute(String[] args, ConsolerMode mode) {
         if(this.vector.getSize() <= 0) System.out.println("The collection is empty");

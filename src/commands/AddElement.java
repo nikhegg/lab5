@@ -10,22 +10,23 @@ import misc.Route;
 public class AddElement extends AbCommand {
     private final VectorCore vector;
 
+    /**
+     * @param vector
+     */
     public AddElement(VectorCore vector) {
         super("add", "Adds a new element to the collection", "add",false);
         this.vector = vector;
     }
 
+    /**
+     * @param args
+     * @param mode
+     */
     @Override
     public void execute(String[] args, ConsolerMode mode) {
-        Route route = null;
-        try {
-            route = new RouteMaker().makeNewRoute(mode);
-        } catch(NullException | IncorrectArgumentException e) {
-            System.out.println(e.getMessage());
-        }
+        Route route = new RouteMaker().makeNewRoute(mode);
         if(route != null) {
             this.vector.addElement(route);
         }
-
     }
 }

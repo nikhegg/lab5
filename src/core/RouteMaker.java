@@ -23,7 +23,7 @@ public class RouteMaker {
         System.out.print("Enter the name of the new route: ");
         String name = this.scanner.nextLine();
         if(mode == ConsolerMode.SCRIPT) System.out.println(name);
-        if(name == null) {
+        if(name == null || name.trim().equals("")) {
             System.out.println("The name of the route can't be a null");
             return null;
         }
@@ -99,11 +99,11 @@ public class RouteMaker {
                 }
 
                 if(mode == ConsolerMode.SCRIPT) System.out.println(lz);
-                locationOne = new Location(locationName, lx, ly, lz);
+                locationOne = new Location(locationName.trim(), lx, ly, lz);
                 break;
             case 'N':
             case 'n':
-                System.out.print("\nThe route " + name + " doesn't have a start location\n");
+                System.out.print("\nThe route " + name.trim() + " doesn't have a start location\n");
                 break;
             default:
                 System.out.println("Should get Y/N, got " + locationExistence);
@@ -159,11 +159,11 @@ public class RouteMaker {
 
                 if (mode == ConsolerMode.SCRIPT) System.out.println(lz);
                 //if(lz == null) throw new NullException("The coordinate Z of the end location can't be a null");
-                locationTwo = new Location(locationName, lx, ly, lz);
+                locationTwo = new Location(locationName.trim(), lx, ly, lz);
                 break;
             case 'N':
             case 'n':
-                System.out.print("\nThe route " + name + " doesn't have an end location");
+                System.out.print("\nThe route " + name.trim() + " doesn't have an end location");
                 break;
             default:
                 System.out.println("Should get Y/N, got " + locationExistence);
@@ -181,7 +181,7 @@ public class RouteMaker {
             distance = (double) Math.round(distance * 100)/100;
         }
         if(distance != null && distance < 1) {
-            System.out.println("The route" + name + " was not saved because its' distance is less than 1 (Distance: " + distance + ")");
+            System.out.println("The route" + name.trim() + " was not saved because its' distance is less than 1 (Distance: " + distance + ")");
             return null;
         }
         if(scanner.hasNextLine()) scanner.nextLine();
